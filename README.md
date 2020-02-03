@@ -1,10 +1,14 @@
 # Nonogram Solver
 
-|                       Row                        |                    Max Row Number                    |                      Column                      |                    Max Col Number                    |
-| :----------------------------------------------: | :--------------------------------------------------: | :----------------------------------------------: | :--------------------------------------------------: |
-| <input id="num_row" style="width:100px"></input> | <input id="num_row_max" style="width:100px"></input> | <input id="num_col" style="width:100px"></input> | <input id="num_col_max" style="width:100px"></input> |
+### Size
+
+|                    Row                     |                 Max Row Number                 |                   Column                   |                 Max Col Number                 |
+| :----------------------------------------: | :--------------------------------------------: | :----------------------------------------: | :--------------------------------------------: |
+| <input id="num_row" style="width:100px" /> | <input id="num_row_max" style="width:100px" /> | <input id="num_col" style="width:100px" /> | <input id="num_col_max" style="width:100px" /> |
 
 <button id="create">Create</button>
+
+### Board
 
 <table><tr><td></td><td>
 <table id="col_cond"></table>
