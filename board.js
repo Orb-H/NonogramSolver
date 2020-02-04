@@ -3,7 +3,7 @@ var created = false;
 function create_board() {
     var col_cond = document.getElementById('col_cond');
     var row_cond = document.getElementById('row_cond');
-    var board = document.getElementById('board');
+    var board = document.getElementById('game_board');
     if (created) {
         created = false;
 

@@ -17,5 +17,5 @@
 </td></tr><tr><td>
 <table id="row_cond"></table>
 </td><td>
-<table id="board"></table>
+<table id="game_board"></table>
 </td></tr></table>
