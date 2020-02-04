@@ -1,15 +1,11 @@
 var created = false;
 
 function create_board() {
-    var col_cond = document.getElementById('col_cond');
-    var row_cond = document.getElementById('row_cond');
     var board = document.getElementById('game_board');
     if (created) {
         created = false;
 
         // Initialize board
-        col_cond.innerHTML = "";
-        row_cond.innerHTML = "";
         board.innerHTML = "";
     }
 
@@ -32,34 +28,22 @@ function create_board() {
     }
 
     // create board
-    for (i = 0; i < row; i++) {
+    for (i = 0; i < row + col_max; i++) {
         var new_row = board.insertRow(-1);
-        for (j = 0; j < col; j++) {
+        for (j = 0; j < col + row_max; j++) {
             var new_cell = new_row.insertCell(-1);
             new_cell.width = 20;
             new_cell.height = 20;
-        }
-    }
 
-    // create row_cond
-    for (i = 0; i < row; i++) {
-        var new_row = row_cond.insertRow(-1);
-        for (j = 0; j < row_max; j++) {
-            var new_cell = new_row.insertCell(-1);
-            new_cell.width = 20;
-            new_cell.height = 20;
-            new_cell.innerHTML = "<input id='row_cond_" + i + "_" + j + "' style='width:20px' />";
-        }
-    }
-
-    //create col_cond
-    for (i = 0; i < col_max; i++) {
-        var new_row = col_cond.insertRow(-1);
-        for (j = 0; j < col; j++) {
-            var new_cell = new_row.insertCell(-1);
-            new_cell.width = 20;
-            new_cell.height = 20;
-            new_cell.innerHTML = "<input id='col_cond_" + i + "_" + j + "' style='width:20px' />";
+            if (i < col_max) {
+                if (j >= row_max) {
+                    new_cell.innerHTML = "<input id='col_cond_" + i + "_" + (j - row_max) + "' style='width:20px' />";
+                }
+            } else {
+                if (j < row_max) {
+                    new_cell.innerHTML = "<input id='row_cond_" + (i - col_max) + "_" + j + "' style='width:20px' />";
+                }
+            }
         }
     }
 
