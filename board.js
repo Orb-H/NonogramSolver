@@ -41,5 +41,27 @@ function create_board() {
         }
     }
 
+    // create row_cond
+    for (i = 0; i < row; i++) {
+        var new_row = row_cond.insertRow(-1);
+        for (j = 0; j < row_max; j++) {
+            var new_cell = new_row.insertCell(-1);
+            new_cell.width = 20;
+            new_cell.height = 20;
+            new_cell.innerHTML = "<input id='row_cond_" + i + "_" + j + "' style='width:20px' />";
+        }
+    }
+
+    //create col_cond
+    for (i = 0; i < col_max; i++) {
+        var new_row = col_cond.insertRow(-1);
+        for (j = 0; j < col; j++) {
+            var new_cell = new_row.insertCell(-1);
+            new_cell.width = 20;
+            new_cell.height = 20;
+            new_cell.innerHTML = "<input id='col_cond_" + i + "_" + j + "' style='width:20px' />";
+        }
+    }
+
     created = true;
 }
