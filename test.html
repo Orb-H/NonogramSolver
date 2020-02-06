@@ -12,8 +12,6 @@
             var r = JSON.parse(row);
             var c = JSON.parse(column);
 
-            alert(s + ' ' + r + ' ' + c);
-
             var result = solve(s, r, c);
 
             var table = document.getElementById('test_board');
@@ -38,24 +36,14 @@
             </tr>
             <tr>
                 <td>Row Numbers</td>
-                <td>[[<u>row_1_1</u>,
-                    <u>row_1_2</u>,
-                    ...],
-                    [<u>row_2_1</u>,
-                    <u>row_2_2</u>,
-                    ...],
-                    ...]<br /><i>* row value in a order of left-to-right direction</i></td>
+                <td>[[<u>row_1_1</u>, <u>row_1_2</u>, ...], [<u>row_2_1</u>, <u>row_2_2</u>, ...], ...]<br /><i>* row
+                        value in a order of left-to-right direction</i></td>
                 <td><input id="row" value="[[]]" /></td>
             </tr>
             <tr>
                 <td>Column Numbers</td>
-                <td>[[<u>col_1_1</u>,
-                    <u>col_1_2</u>,
-                    ...],
-                    [<u>col_2_1</u>,
-                    <u>col_2_2</u>,
-                    ...],
-                    ...]<br /><i>* column value in a order of up-to-down direction</i></td>
+                <td>[[<u>col_1_1</u>, <u>col_1_2</u>, ...], [<u>col_2_1</u>, <u>col_2_2</u>, ...], ...]<br /><i>* column
+                        value in a order of up-to-down direction</i></td>
                 <td><input id="column" value="[[]]" /></td>
             </tr>
         </tbody>
