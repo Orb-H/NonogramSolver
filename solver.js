@@ -11,5 +11,28 @@ function solve(size, rows, columns) {
         }
         board.push(arr);
     }
-    alert(JSON.stringify(board));
+    console.log(JSON.stringify(board));
+
+    // check empty horizontal line(exception for number 0)
+    for (i = 0; i < size_row; i++) {
+        if (rows[i].length == 1 && rows[i][0] == 0) {
+            for (j = 0; j < size_col; j++) {
+                board[i][j] = -1;
+                console.log("row " + i + " is empty.");
+            }
+        }
+    }
+
+    // check empty vertical line(exception for number 0)
+    for (i = 0; i < size_col; i++) {
+        if (columns[i].length == 1 && columns[i][0] == 0) {
+            for (j = 0; j < size_row; j++) {
+                board[j][i] = -1;
+                console.log("column " + i + " is empty.");
+            }
+        }
+    }
+
+    // TEST board state
+    console.log(JSON.stringify(board));
 }
