@@ -1,3 +1,4 @@
+<script src="./solver.js"></script>
 <script src="./board.js"></script>
 
 # Nonogram Solver
@@ -13,3 +14,4 @@
 ### Board
 
 <table id="game_board"></table>
+<button id="solve_i" onclick="solve_board(show)">Solve Immediately</button><br /><button id="solve_v" onclick="solve_board(visualize)">Visualize</button>
