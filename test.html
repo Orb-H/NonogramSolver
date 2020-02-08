@@ -12,9 +12,27 @@
             var r = JSON.parse(row);
             var c = JSON.parse(column);
 
-            var result = solve(s, r, c);
+            var result = solve_v1(s, r, c);
 
             var table = document.getElementById('test_board');
+            table.innerHTML = '';
+            for (var i = 0; i < s[0]; i++) {
+                var row = table.insertRow(-1);
+                for (var j = 0; j < s[1]; j++) {
+                    var cell = row.insertCell(-1);
+                    cell.id = 'board_' + i + '_' + j;
+                    cell.style.textAlign = 'center';
+                }
+            }
+
+            for (var i = 0; i < result.length; i++) {
+                var cell = document.getElementById('board_' + result[i][0][0] + '_' + result[i][0][1]);
+                if (result[i][1] === 1) {
+                    cell.innerHTML = "■";
+                } else if (result[i][1] === -1) {
+                    cell.innerHTML = "X";
+                }
+            }
         }
     </script>
 </head>

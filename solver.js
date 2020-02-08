@@ -1,4 +1,4 @@
-function solve(size, rows, columns) {
+function solve_v1(size, rows, columns) {
     var size_row = size[0];
     var size_col = size[1];
 
