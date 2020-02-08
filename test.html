@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <script src="./solver.js"></script>
+    <script>
+        function test_solve() {
+            var size = document.getElementById('size').value;
+            var row = document.getElementById('row').value;
+            var column = document.getElementById('column').value;
+
+            var s = JSON.parse(size);
+            var r = JSON.parse(row);
+            var c = JSON.parse(column);
+
+            var result = solve_v1(s, r, c);
+
+            var table = document.getElementById('test_board');
+            table.innerHTML = '';
+            for (var i = 0; i < s[0]; i++) {
+                var row = table.insertRow(-1);
+                for (var j = 0; j < s[1]; j++) {
+                    var cell = row.insertCell(-1);
+                    cell.id = 'board_' + i + '_' + j;
+                    cell.style.textAlign = 'center';
+                }
+            }
+
+            for (var i = 0; i < result.length; i++) {
+                var cell = document.getElementById('board_' + result[i][0][0] + '_' + result[i][0][1]);
+                if (result[i][1] === 1) {
+                    cell.innerHTML = "■";
+                } else if (result[i][1] === -1) {
+                    cell.innerHTML = "X";
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <table border=1 cellspacing=0>
+        <thead>
+            <tr>
+                <td><b>Parameter</b></td>
+                <td><b>Format</b></td>
+                <td><b>Input</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Size</td>
+                <td>[<u>row</u>, <u>column</u>]</td>
+                <td><input id="size" value="[]" /></td>
+            </tr>
+            <tr>
+                <td>Row Numbers</td>
+                <td>[[<u>row_1_1</u>, <u>row_1_2</u>, ...], [<u>row_2_1</u>, <u>row_2_2</u>, ...], ...]<br /><i>* row
+                        value in a order of left-to-right direction</i></td>
+                <td><input id="row" value="[[]]" /></td>
+            </tr>
+            <tr>
+                <td>Column Numbers</td>
+                <td>[[<u>col_1_1</u>, <u>col_1_2</u>, ...], [<u>col_2_1</u>, <u>col_2_2</u>, ...], ...]<br /><i>* column
+                        value in a order of up-to-down direction</i></td>
+                <td><input id="column" value="[[]]" /></td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <button onclick="test_solve()">Test</button>
+    <table id="test_board"></table>
+</body>
+
+</html>
