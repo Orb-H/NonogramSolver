@@ -14,4 +14,4 @@
 ### Board
 
 <table id="game_board"></table>
-<button id="solve_i" onclick="solve_board(show)">Solve Immediately</button><br /><button id="solve_v" onclick="solve_board(visualize)">Visualize</button>
+<button id="solve_i" onclick="solve_board(show)">Solve Immediately</button><br /><button id="solve_v" onclick="solve_board(visualize)">Solve Cell-by-cell</button>
