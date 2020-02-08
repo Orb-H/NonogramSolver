@@ -1,4 +1,8 @@
 var created = false;
+var row = NaN;
+var row_max = NaN;
+var col = NaN;
+var col_max = NaN;
 
 function create_board() {
     var board = document.getElementById('game_board');
@@ -9,10 +13,10 @@ function create_board() {
         board.innerHTML = "";
     }
 
-    var row = parseInt(document.getElementById('num_row').value, 10);
-    var row_max = parseInt(document.getElementById('num_row_max').value, 10);
-    var col = parseInt(document.getElementById('num_col').value, 10);
-    var col_max = parseInt(document.getElementById('num_col_max').value, 10);
+    row = parseInt(document.getElementById('num_row').value, 10);
+    row_max = parseInt(document.getElementById('num_row_max').value, 10);
+    col = parseInt(document.getElementById('num_col').value, 10);
+    col_max = parseInt(document.getElementById('num_col_max').value, 10);
     if (isNaN(row) || isNaN(row_max) || isNaN(col) || isNaN(col_max)) {
         // error if non-number exist
         alert('format error');
