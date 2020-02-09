@@ -11,3 +11,7 @@ td {
     max-height: 20px;
     border: 0px;
 }
+
+#game_board {
+    table-layout: fixed;
+}
