@@ -2,7 +2,7 @@
 <script src="./board.js"></script>
 <link rel="stylesheet" href="./style.css" />
 
-# Nonogram Solver
+# Nonogram Solver(WIP)
 
 ### Size
 
