@@ -36,6 +36,7 @@ function create_board() {
         var new_row = board.insertRow(-1);
         for (j = 0; j < col + row_max; j++) {
             var new_cell = new_row.insertCell(-1);
+            new_cell.classList.add("cell");
 
             if (i < col_max) {
                 if (j >= row_max) {
@@ -45,7 +46,6 @@ function create_board() {
                 new_cell.innerHTML = '<input id="row_cond_' + (i - col_max) + '_' + j + '" style="width:20px" />';
             } else {
                 new_cell.id = 'board_' + (i - col_max) + '_' + (j - row_max);
-                new_cell.style.textAlign = 'center';
             }
         }
     }
