@@ -23,7 +23,7 @@ function create_board() {
         return;
     }
 
-    alert(row + ' ' + row_max + ' ' + col + ' ' + col_max);
+    // alert(row + ' ' + row_max + ' ' + col + ' ' + col_max);
 
     if (row < (2 * row_max - 1) || col < (2 * col_max - 1)) {
         // error if board creation condition doesn't match
@@ -32,20 +32,20 @@ function create_board() {
     }
 
     // create board
-    for (i = 0; i < row + col_max; i++) {
+    for (i = 0; i < row + 1; i++) {
         var new_row = board.insertRow(-1);
-        for (j = 0; j < col + row_max; j++) {
+        for (j = 0; j < col + 1; j++) {
             var new_cell = new_row.insertCell(-1);
             new_cell.classList.add('cell');
 
-            if (i < col_max) {
-                if (j >= row_max) {
-                    new_cell.innerHTML = '<input id="col_cond_' + i + '_' + (j - row_max) + '" style="width:20px" />';
+            if (i == 0) {
+                if (j > 0) {
+                    new_cell.innerHTML = '<textarea class="col_cond" id="col_cond_' + (j - 1) + '" style="width:20px" rows="' + col_max + '" />';
                 }
-            } else if (j < row_max) {
-                new_cell.innerHTML = '<input id="row_cond_' + (i - col_max) + '_' + j + '" style="width:20px" />';
+            } else if (j == 0) {
+                new_cell.innerHTML = '<textarea class="row_cond" id="row_cond_' + (i - 1) + '" style="height:20px" cols="' + row_max + '" />';
             } else {
-                new_cell.id = 'board_' + (i - col_max) + '_' + (j - row_max);
+                new_cell.id = 'board_' + (i - 1) + '_' + (j - 1);
             }
         }
     }
@@ -67,17 +67,19 @@ function solve_board(handler) {
 
     // get row condition
     for (var i = 0; i < row; i++) {
-        var arr = [];
-        // condition as array
-        for (var j = 0; j < row_max; j++) {
-            var t = document.getElementById('row_cond_' + i + '_' + j).value;
-            if (t.length !== 0) {
-                arr.push(parseInt(t, 10));
-            }
+        // condition as string + whitespace
+        var t = document.getElementById('row_cond_' + i).value;
+        var arr = t.split(/\s+/)
+        for (var j = 0; j < arr.length; j++) {
+            arr[j] = parseInt(arr[j]);
         }
 
         // remove 0s and negative numbers
         for (var j = 0; j < arr.length; j++) {
+            if (isNaN(arr[j])) {
+                alert('format error');
+                return;
+            }
             if (arr[j] <= 0) {
                 arr.splice(j, 1);
             }
@@ -93,17 +95,19 @@ function solve_board(handler) {
 
     // get column condition
     for (var i = 0; i < col; i++) {
-        var arr = [];
-        // condition as array
-        for (var j = 0; j < col_max; j++) {
-            var t = document.getElementById('col_cond_' + j + '_' + i).value;
-            if (t.length !== 0) {
-                arr.push(parseInt(t, 10));
-            }
+        // condition as string + whitespace
+        var t = document.getElementById('col_cond_' + i).value;
+        var arr = t.split(/\s+/);
+        for (var j = 0; j < arr.length; j++) {
+            arr[j] = parseInt(arr[j]);
         }
 
         // remove 0s and negative numbers
         for (var j = 0; j < arr.length; j++) {
+            if (isNaN(arr[j])) {
+                alert('format error');
+                return;
+            }
             if (arr[j] <= 0) {
                 arr.splice(j, 1);
             }
