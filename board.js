@@ -147,3 +147,12 @@ function visualize(res, i = 0) {
         }
     }, 50);
 }
+
+function clear() {
+    for (var i = 0; i < row; i++) {
+        for (var j = 0; j < col; j++) {
+            var cell = document.getElementById('board_' + i + '_' + j);
+            cell.innerHTML = '';
+        }
+    }
+}
