@@ -36,7 +36,7 @@ function create_board() {
         var new_row = board.insertRow(-1);
         for (j = 0; j < col + row_max; j++) {
             var new_cell = new_row.insertCell(-1);
-            new_cell.classList.add("cell");
+            new_cell.classList.add('cell');
 
             if (i < col_max) {
                 if (j >= row_max) {
@@ -127,9 +127,9 @@ function show(res) {
     for (var i = 0; i < res.length; i++) {
         var cell = document.getElementById('board_' + res[i][0][0] + '_' + res[i][0][1]);
         if (res[i][1] === 1) {
-            cell.innerHTML = '■';
+            cell.innerHTML = '<img src="./block.png" width=20 height=20 />';
         } else if (res[i][1] === -1) {
-            cell.innerHTML = 'X';
+            cell.innerHTML = '<img src="./cross.png" width=20 height=20 />';
         }
     }
 }
@@ -138,9 +138,9 @@ function visualize(res, i = 0) {
     setTimeout(function () {
         var cell = document.getElementById('board_' + res[i][0][0] + '_' + res[i][0][1]);
         if (res[i][1] === 1) {
-            cell.innerHTML = '■';
+            cell.innerHTML = '<img src="./block.png" width=20 height=20 />';
         } else if (res[i][1] === -1) {
-            cell.innerHTML = 'X';
+            cell.innerHTML = '<img src="./cross.png" width=20 height=20 />';
         }
         if (i < res.length - 1) {
             visualize(res, i + 1);
